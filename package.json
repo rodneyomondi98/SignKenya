@@ -1,0 +1,30 @@
+{
+  "name": "signkenya",
+  "version": "1.0.0",
+  "description": "SignKenya MERN Stack Application",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"pnpm run server:dev\" \"pnpm run client:dev\"",
+    "build": "pnpm run client:build",
+    "start": "pnpm run server:start",
+    "client:dev": "pnpm --filter client dev",
+    "client:build": "pnpm --filter client build",
+    "client:preview": "pnpm --filter client preview",
+    "server:dev": "pnpm --filter server dev",
+    "server:start": "pnpm --filter server start",
+    "install:all": "pnpm install && pnpm --filter client install && pnpm --filter server install",
+    "clean": "pnpm --filter client clean && pnpm --filter server clean && rm -rf node_modules",
+    "lint": "pnpm --filter client lint && pnpm --filter server lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
